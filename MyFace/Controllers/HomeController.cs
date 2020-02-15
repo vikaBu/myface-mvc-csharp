@@ -9,6 +9,7 @@ using MyFace.Models;
 
 namespace MyFace.Controllers
 {
+    [Route("")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -18,16 +19,19 @@ namespace MyFace.Controllers
             _logger = logger;
         }
 
+        [HttpGet("")]
         public IActionResult Index()
         {
             return View();
         }
 
+        [HttpGet("/privacy")]
         public IActionResult Privacy()
         {
             return View();
         }
 
+        [HttpGet("/error")]
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
