@@ -1,6 +1,4 @@
-using System;
-
-namespace MyFace.Models
+namespace MyFace.Models.View
 {
     public class ErrorViewModel
     {
