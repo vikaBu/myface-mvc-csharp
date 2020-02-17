@@ -9,13 +9,11 @@ namespace MyFace.Controllers
     public class PostsController : Controller
     {
         private readonly IPostsRepo _posts;
-        private readonly IUsersRepo _users;
         private readonly IInteractionsRepo _interactions;
 
-        public PostsController(IPostsRepo posts, IUsersRepo users, IInteractionsRepo interactions)
+        public PostsController(IPostsRepo posts, IInteractionsRepo interactions)
         {
             _posts = posts;
-            _users = users;
             _interactions = interactions;
         }
         
@@ -36,18 +34,14 @@ namespace MyFace.Controllers
         [HttpPost("create")]
         public IActionResult CreatePost(CreatePostRequestModel newPost)
         {
-            var user = _users.GetById(newPost.UserId);
-            _posts.CreatePost(newPost, user);
+            _posts.CreatePost(newPost);
             return RedirectToAction("PostsPage");
         }
 
         [HttpPost("{id}/add-interaction")]
         public IActionResult AddInteraction(int id, CreateInteractionRequestModel newInteraction)
         {
-            var post = _posts.GetById(id);
-            var user = _users.GetById(newInteraction.UserId);
-            _interactions.Create(newInteraction, post, user);
-
+            _interactions.Create(newInteraction, id);
             return RedirectToAction("PostsPage");
         }
     }

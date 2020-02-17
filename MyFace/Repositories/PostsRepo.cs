@@ -10,8 +10,7 @@ namespace MyFace.Repositories
     public interface IPostsRepo
     {
         IEnumerable<Post> GetAll();
-        Post GetById(int id);
-        void CreatePost(CreatePostRequestModel postModel, User postedBy);
+        void CreatePost(CreatePostRequestModel postModel);
     }
     
     public class PostsRepo : IPostsRepo
@@ -31,21 +30,14 @@ namespace MyFace.Repositories
                 .ToList();
         }
 
-        public Post GetById(int id)
-        {
-            return _context.Posts
-                .Include(p => p.User)
-                .Single(post => post.Id == id);
-        }
-
-        public void CreatePost(CreatePostRequestModel postModel, User postedBy)
+        public void CreatePost(CreatePostRequestModel postModel)
         {
             _context.Posts.Add(new Post
             {
                 ImageUrl = postModel.ImageUrl,
                 Message = postModel.Message,
                 PostedAt = DateTime.Now,
-                User = postedBy,
+                UserId = postModel.UserId,
             });
             _context.SaveChanges();
         }
