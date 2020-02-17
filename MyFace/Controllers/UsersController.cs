@@ -31,13 +31,13 @@ namespace MyFace.Controllers
             return View(viewModel);
         }
 
-        [HttpGet]
+        [HttpGet("create")]
         public IActionResult CreateUserPage()
         {
             return View();
         }
 
-        [HttpPost]
+        [HttpPost("create")]
         public IActionResult CreateUser(CreateUserRequestModel newUser)
         {
             _users.Create(newUser);
