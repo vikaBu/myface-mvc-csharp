@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using MyFace.Models.Database;
 using MyFace.Models.Request;
 
@@ -23,12 +24,15 @@ namespace MyFace.Repositories
         
         public IEnumerable<User> GetAll()
         {
-            return _context.Users;
+            return _context.Users
+                .Include(u => u.Posts)
+                .Include(u => u.Interactions);
         }
 
         public User GetById(int id)
         {
             return _context.Users
+                .Include(u => u.Posts)
                 .Single(user => user.Id == id);
         }
 
