@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MyFace.Models;
+using MyFace.Models.Request;
 using MyFace.Models.View;
 using MyFace.Repositories;
 
@@ -16,11 +16,24 @@ namespace MyFace.Controllers
         }
         
         [HttpGet("")]
-        public IActionResult Posts()
+        public IActionResult PostsPage()
         {
             var posts = _posts.GetAll();
             var viewModel = new PostsViewModel(posts);
             return View(viewModel);
+        }
+
+        [HttpGet("create")]
+        public IActionResult CreatePostPage()
+        {
+            return View();
+        }
+
+        [HttpPost("create")]
+        public IActionResult CreatePost(CreatePostRequestModel postModel)
+        {
+            _posts.CreatePost(postModel);
+            return RedirectToAction("PostsPage");
         }
     }
 }
