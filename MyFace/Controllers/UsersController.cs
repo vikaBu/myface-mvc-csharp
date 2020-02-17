@@ -41,7 +41,7 @@ namespace MyFace.Controllers
         public IActionResult CreateUser(CreateUserRequestModel newUser)
         {
             _users.Create(newUser);
-            return RedirectToAction("UserPage");
+            return RedirectToAction("UsersPage");
         }
     }
 }
