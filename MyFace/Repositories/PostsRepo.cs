@@ -27,7 +27,7 @@ namespace MyFace.Repositories
             return _context.Posts
                 .Include(p => p.User)
                 .Include(p => p.Interactions)
-                .ToList();
+                .OrderByDescending(p => p.PostedAt);
         }
 
         public void CreatePost(CreatePostRequestModel postModel)

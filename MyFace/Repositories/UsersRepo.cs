@@ -26,7 +26,8 @@ namespace MyFace.Repositories
         {
             return _context.Users
                 .Include(u => u.Posts)
-                .Include(u => u.Interactions);
+                .Include(u => u.Interactions)
+                .OrderBy(u => u.Username);
         }
 
         public User GetById(int id)
