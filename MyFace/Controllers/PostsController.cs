@@ -31,10 +31,10 @@ namespace MyFace.Controllers
         }
 
         [HttpPost("create")]
-        public IActionResult CreatePost(CreatePostRequestModel postModel)
+        public IActionResult CreatePost(CreatePostRequestModel newPost)
         {
-            var user = _users.GetById(postModel.UserId);
-            _posts.CreatePost(postModel, user);
+            var user = _users.GetById(newPost.UserId);
+            _posts.CreatePost(newPost, user);
             return RedirectToAction("PostsPage");
         }
     }

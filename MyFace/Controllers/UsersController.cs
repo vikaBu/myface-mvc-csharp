@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MyFace.Models.Request;
 using MyFace.Models.View;
 using MyFace.Repositories;
 
@@ -28,6 +29,19 @@ namespace MyFace.Controllers
             var user = _users.GetById(id);
             var viewModel = new UserViewModel(user);
             return View(viewModel);
+        }
+
+        [HttpGet]
+        public IActionResult CreateUserPage()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CreateUser(CreateUserRequestModel newUser)
+        {
+            _users.Create(newUser);
+            return RedirectToAction("UserPage");
         }
     }
 }
