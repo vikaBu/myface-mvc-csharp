@@ -9,7 +9,7 @@ namespace MyFace.Repositories
 {
     public interface IPostsRepo
     {
-        IEnumerable<Post> GetAll();
+        IEnumerable<Post> GetAll(int pageNumber, int pageSize);
         void CreatePost(CreatePostRequestModel postModel);
     }
     
@@ -22,12 +22,14 @@ namespace MyFace.Repositories
             _context = context;
         }
         
-        public IEnumerable<Post> GetAll()
+        public IEnumerable<Post> GetAll(int pageNumber, int pageSize)
         {
             return _context.Posts
                 .Include(p => p.User)
                 .Include(p => p.Interactions)
-                .OrderByDescending(p => p.PostedAt);
+                .OrderByDescending(p => p.PostedAt)
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize);
         }
 
         public void CreatePost(CreatePostRequestModel postModel)

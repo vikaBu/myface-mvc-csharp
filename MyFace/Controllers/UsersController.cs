@@ -16,9 +16,9 @@ namespace MyFace.Controllers
         }
         
         [HttpGet("")]
-        public IActionResult UsersPage()
+        public IActionResult UsersPage(int pageNumber = 0, int pageSize = 10)
         {
-            var users = _users.GetAll();
+            var users = _users.GetAll(pageNumber, pageSize);
             var viewModel = new UsersViewModel(users);
             return View(viewModel);
         }
