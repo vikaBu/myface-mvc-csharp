@@ -1,15 +1,16 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using MyFace.Models.Database;
 
 namespace MyFace.Models.View
 {
     public class UsersViewModel
     {
-        private IEnumerable<User> _users;
+        public IEnumerable<UserViewModel> Users { get; }
 
         public UsersViewModel(IEnumerable<User> users)
         {
-            _users = users;
+            Users = users.Select(user => new UserViewModel(user));
         }
     }
 }
