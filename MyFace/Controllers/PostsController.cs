@@ -34,8 +34,14 @@ namespace MyFace.Controllers
         [HttpPost("create")]
         public IActionResult CreatePost(CreatePostRequestModel newPost)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("CreatePostPage", newPost);
+            }
+            
             _posts.CreatePost(newPost);
             return RedirectToAction("PostsPage");
+
         }
 
         [HttpPost("{id}/add-interaction")]

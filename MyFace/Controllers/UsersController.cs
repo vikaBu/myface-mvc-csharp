@@ -40,6 +40,11 @@ namespace MyFace.Controllers
         [HttpPost("create")]
         public IActionResult CreateUser(CreateUserRequestModel newUser)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("CreateUserPage", newUser);
+            }
+            
             _users.Create(newUser);
             return RedirectToAction("UsersPage");
         }
