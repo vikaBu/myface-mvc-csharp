@@ -15,5 +15,6 @@ namespace MyFace.Models.Database
         public string Username { get; set; }
         public string Email { get; set; }
         public IEnumerable<Post> Posts { get; set; }
+        public IEnumerable<Interaction> Interactions { get; set; }
     }
 }
