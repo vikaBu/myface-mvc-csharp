@@ -14,10 +14,19 @@ namespace MyFace.Controllers
             _users = users;
         }
         
+        [HttpGet("")]
         public IActionResult UsersPage()
         {
             var users = _users.GetAll();
             var viewModel = new UsersViewModel(users);
+            return View(viewModel);
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult UserPage(int id)
+        {
+            var user = _users.GetById(id);
+            var viewModel = new UserViewModel(user);
             return View(viewModel);
         }
     }
