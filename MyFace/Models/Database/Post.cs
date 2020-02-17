@@ -12,5 +12,6 @@ namespace MyFace.Models.Database
         public string Message { get; set; }
         public string ImageUrl { get; set; }
         public DateTime PostedAt { get; set; }
+        public User PostedBy { get; set; }
     }
 }

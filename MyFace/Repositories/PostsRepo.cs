@@ -8,7 +8,7 @@ namespace MyFace.Repositories
     public interface IPostsRepo
     {
         IEnumerable<Post> GetAll();
-        void CreatePost(CreatePostRequestModel postModel);
+        void CreatePost(CreatePostRequestModel postModel, User postedBy);
     }
     
     public class PostsRepo : IPostsRepo
@@ -25,13 +25,14 @@ namespace MyFace.Repositories
             return _context.Posts;
         }
 
-        public void CreatePost(CreatePostRequestModel postModel)
+        public void CreatePost(CreatePostRequestModel postModel, User postedBy)
         {
             _context.Posts.Add(new Post
             {
                 ImageUrl = postModel.ImageUrl,
                 Message = postModel.Message,
                 PostedAt = DateTime.Now,
+                PostedBy = postedBy,
             });
             _context.SaveChanges();
         }

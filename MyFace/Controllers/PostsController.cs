@@ -9,6 +9,7 @@ namespace MyFace.Controllers
     public class PostsController : Controller
     {
         private readonly IPostsRepo _posts;
+        private readonly IUsersRepo _users;
 
         public PostsController(IPostsRepo posts)
         {
@@ -32,7 +33,8 @@ namespace MyFace.Controllers
         [HttpPost("create")]
         public IActionResult CreatePost(CreatePostRequestModel postModel)
         {
-            _posts.CreatePost(postModel);
+            var user = _users.GetById(postModel.UserId);
+            _posts.CreatePost(postModel, user);
             return RedirectToAction("PostsPage");
         }
     }
