@@ -23,8 +23,7 @@ namespace MyFace.Controllers
         [HttpGet("")]
         public IActionResult Index()
         {
-            // Just send users to the main post feed.
-            return RedirectToAction("PostsPage", "Posts");
+            return View("Index");
         }
 
         [HttpGet("/privacy")]
