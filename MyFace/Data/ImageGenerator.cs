@@ -24,12 +24,7 @@ namespace MyFace.Data
 
         private static string GetImage(int index, int width, int height)
         {
-            if (_brokenImages.Contains(index))
-            {
-                return null;
-            }
-
-            return $"https://i.picsum.photos/id/{600 + index}/{2400}/{900}.jpg";
+            return $"https://picsum.photos/id/{index}/{width}/{height}";
         }
     }
 }
