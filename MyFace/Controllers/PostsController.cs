@@ -18,10 +18,10 @@ namespace MyFace.Controllers
         }
         
         [HttpGet("")]
-        public IActionResult PostsPage(int pageNumber = 0, int pageSize = 10)
+        public IActionResult PostsPage(int pageNumber = 1, int pageSize = 10)
         {
             var posts = _posts.GetAll(pageNumber, pageSize);
-            var viewModel = new PostsViewModel(posts);
+            var viewModel = new PostsViewModel(posts, pageNumber, pageSize);
             return View(viewModel);
         }
 

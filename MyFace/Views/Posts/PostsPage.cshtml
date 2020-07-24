@@ -3,3 +3,26 @@
 @{
     Layout = "_Layout";
 }
+
+<h1>Posts</h1>
+
+<section>
+    <ol>
+        @foreach (var post in Model.Posts)
+        {
+            <li>
+                <div>@post.PostedBy.DisplayName</div>
+                <img src="@post.ImageUrl" alt="post image"/> 
+                <p>@post.Message</p>
+            </li>
+        }
+    </ol>
+</section>
+
+<section>
+    @if (Model.CurrentPageNumber > 1)
+    {
+        <a href="@Model.PreviousPage">Previous Page</a>   
+    }
+    <a href="@Model.NextPage">Next Page</a>
+</section>
