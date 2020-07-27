@@ -24,10 +24,10 @@ namespace MyFace.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult UserPage(int id)
+        public IActionResult UserPage([FromRoute] int id, [FromQuery] int numPosts = 8, [FromQuery] int numLikes = 8, [FromQuery] int numDislikes = 8)
         {
             var user = _users.GetById(id);
-            var viewModel = new UserViewModel(user);
+            var viewModel = new UserViewModel(user, numPosts, numLikes, numDislikes);
             return View(viewModel);
         }
 
