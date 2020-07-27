@@ -5,7 +5,7 @@
     {
         <li>
             <img src="@post.ImageUrl"  alt="">
-            <div>@post.PostedBy.Username</div>
+            <a href="/users/@post.PostedBy.Id">@post.PostedBy.Username</a>
             <div>@post.FormattedTimeSincePost</div>
             <div>@post.Message</div>
         </li>
