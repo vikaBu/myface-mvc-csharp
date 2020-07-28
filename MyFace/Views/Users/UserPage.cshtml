@@ -4,15 +4,20 @@
     Layout = "_Layout";
 }
 
-<section id="hero-section">
-    <img src="@Model.CoverImageUrl" alt="Cover Image"/>
-    <img src="@Model.ProfileImageUrl" alt="Profile Image"/>
-    <h1>@Model.DisplayName</h1>
-    <div>@Model.Username</div>
-    <div>@Model.Email</div>
+<section id="hero-section" class="top-profile">
+    <img class="cover-img"src="@Model.CoverImageUrl" alt="Cover Image"/>
+    <div class="user-profile">
+    <img class="profile-img" src="@Model.ProfileImageUrl" alt="Profile Image"/>
+    <div class="user-details">
+    <h1 class="display-name">@Model.DisplayName</h1>
+    <div class="user-name"> @Model.Username</div>
+    <div class="email-address"> @Model.Email</div>
+    </div>
+    </div>
 </section>
 
-<section id="posts-section">
+
+<section id="posts-section" class="posts-section">
     <h2>@(Model.FirstName)'s Posts</h2>
     <partial name="_PostList" model="@Model.Posts"/>
     @if (Model.HasMorePosts)
@@ -20,6 +25,7 @@
         <a href="@Model.ShowMorePostsUrl">Show More</a>
     }
 </section>
+
 
 <section id="likes-section">
     <h2>Posts @Model.FirstName Liked</h2>

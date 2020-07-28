@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - MyFace</title>
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/Mystyles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -30,8 +32,9 @@
     </div>
 
     <footer>
-        <img src="/images/corndel-logo.png" alt="Corndel logo">
-        <img src="/images/softwire-logo.png" alt="Softwire logo">
+        <img class ="corndel-logo" img src="/images/corndel-logo.png" alt="Corndel logo" width="15%">
+        <div></div>
+        <img class ="softwire-logo"img src="/images/softwire-logo.png" alt="Softwire logo"width="15%">
     </footer>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)

@@ -1,13 +1,18 @@
 ﻿@model IEnumerable<MyFace.Models.View.PostViewModel>
 
-<ol>
+
+<ol class="post-list">
+    
     @foreach (var post in Model)
     {
-        <li>
-            <img src="@post.ImageUrl"  alt="">
-            <a href="/users/@post.PostedBy.Id">@post.PostedBy.Username</a>
-            <div>@post.FormattedTimeSincePost</div>
-            <div>@post.Message</div>
+        <li class= "post">
+            <img class= "post-img"src="@post.ImageUrl"  alt="">
+            <div class="post-info">
+            <a class="user-name" href="/users/@post.PostedBy.Id">@post.PostedBy.Username</a>
+            <div class= "post-date" @post.FormattedTimeSincePost> </div>
+            <div class="post-message">@post.Message</div>
+            </div>
         </li>
     }
 </ol>
+ 

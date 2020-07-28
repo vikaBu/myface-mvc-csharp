@@ -1,0 +1,148 @@
+body {
+  background: #252A38;
+  font-family: 'Open Sans';
+  margin: 0;
+}
+
+.profile-img {
+  border-radius: 50%;
+  border: 4px solid white;
+  width: 100px;
+  margin-left: 24px;
+}
+
+div.flex-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.post {
+  width: 260px;
+  min-width: 260px;
+  margin: 24px;
+  background-color: #151820;
+  color: white;
+  font-size: 12px;
+}
+
+.user-name {
+  font-family: 'Open Sans';
+  color: white;
+}
+
+.post-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow-x: scroll;
+  list-style: none;
+  padding: 20px;
+}
+
+h1.profile-name {
+  color: #DCDCDC;
+  font-family: 'Open-Sans', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 32px;
+}
+
+div.user-name {
+  color: #DCDCDC;
+  font-family: 'Open-Sans', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+div.user-email {
+  color: #DCDCDC;
+  font-family: 'Open-Sans', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+div.user-name {
+  color: #DCDCDC;
+  font-family: 'Open-Sans', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+div.user-email {
+  color: #DCDCDC;
+  font-family: 'Open-Sans', sans-serif;
+  font-weight: 450;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: white;
+}
+
+.post-img {
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: lightgray;
+}
+
+button {
+  font-size: 24px;
+}
+
+body {
+  font-size: 16px;
+}
+
+.cover-img {
+  position: relative;
+  width: 95%;
+  height: 100%;
+}
+
+footer {
+  width: 100%;
+  height: 40%;
+  margin: 0;
+  background-color: #151820;
+  border-color: wheat;
+}
+
+.post-info {
+  padding: 16px;
+}
+
+.top-profile {
+  position: relative;
+}
+
+.user-profile {
+  position: absolute;
+  bottom: -15px;
+  background: rgba(37, 42, 56, 0.56);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.user-details {
+  width: 100vw;
+  margin-left: 24px;
+}
+
+h2 {
+  color: white;
+}
+/*# sourceMappingURL=myStyles.css.map */
